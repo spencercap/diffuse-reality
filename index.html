@@ -4,10 +4,59 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffuse-reality</title>
+    <title>Diffuse Reality</title>
+    <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
-    <div id="app"></div>
+    <header class="header">
+      <h1>Diffuse Reality</h1>
+    </header>
+
+    <main class="grid">
+      <section class="grid__left">
+        <div class="album-info">
+          <h2>Arts Of Techno - Pulseway</h2>
+          <p>Full Album — <a href="#">ggo.su/8BfQr</a></p>
+          <p>Artist: Arts Of Techno</p>
+          <p>Title: Crimson</p>
+          <p>Format: Digital</p>
+          <p>Catalogue: DRSS1323</p>
+        </div>
+
+        <div class="tracklist">
+          <h3>Tracklist:</h3>
+          <ol>
+            <li>Noctis</li>
+            <li>If not now when</li>
+            <li>Hello Mr. Nobody</li>
+            <li>Pulseway</li>
+            <li>Crimson</li>
+            <li>Shadow</li>
+            <li>Specter</li>
+          </ol>
+        </div>
+
+        <button class="btn-download" disabled>Download</button>
+        <a href="#" class="website-link">www.diffusereality.net</a>
+      </section>
+
+      <section class="grid__right">
+        <div class="audio-player">
+          <div class="audio-player__art"></div>
+          <p class="audio-player__title">Diffuse Reality - Arts Of Techno - Pulseway</p>
+        </div>
+
+        <div class="feedback">
+          <h3>Give us your feedback!</h3>
+          <div class="feedback_form">
+            <label>Name: <input type="text" /></label>
+            <label>Comment: <textarea></textarea></label>
+            <button class="btn-submit">Thanks for your feedback!</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
