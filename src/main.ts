@@ -190,8 +190,72 @@ function insertCommentInOrder(list: HTMLElement, newEl: HTMLElement, newRow: She
   list.appendChild(newEl)
 }
 
+interface Submission {
+  name: string
+  comment: string
+  clientTimestamp: string
+  submittedAt: string
+}
+
+const SUBMISSIONS_KEY = 'DR_user-submitted'
+const SUCCESS_WINDOW_MS = 5 * 60 * 1000; // 5 minutes
+
+function logSubmissionToStorage(name: string, comment: string, clientTimestamp: string) {
+  const submission: Submission = {
+    name,
+    comment,
+    clientTimestamp,
+    submittedAt: new Date().toISOString(),
+  }
+  try {
+    const stored = localStorage.getItem(SUBMISSIONS_KEY)
+    const submissions: Submission[] = stored ? JSON.parse(stored) : []
+    submissions.push(submission)
+    localStorage.setItem(SUBMISSIONS_KEY, JSON.stringify(submissions))
+  } catch (e) {
+    console.error('Failed to store submission:', e)
+  }
+}
+
+function getLatestSubmission(): Submission | null {
+  try {
+    const stored = localStorage.getItem(SUBMISSIONS_KEY)
+    if (!stored) return null
+    const submissions: Submission[] = JSON.parse(stored)
+    return submissions.length ? submissions[submissions.length - 1] : null
+  } catch {
+    return null
+  }
+}
+
+function hasRecentSubmission(): boolean {
+  const latest = getLatestSubmission()
+  if (!latest) return false
+  const submittedAt = new Date(latest.submittedAt).getTime()
+  return Date.now() - submittedAt < SUCCESS_WINDOW_MS
+}
+
+function ensureRecentSubmissionInComments() {
+  const latest = getLatestSubmission()
+  if (!latest || !hasRecentSubmission()) return
+  const alreadyLoaded = [...loadedComments.values()].some(
+    (r) => r.clientTimestamp === latest.clientTimestamp
+  )
+  if (!alreadyLoaded) {
+    addOptimisticComment(latest.name, latest.comment, latest.clientTimestamp)
+  }
+}
+
+function checkSubmissionOnLoad() {
+  if (hasRecentSubmission()) {
+    enableDownload()
+    ensureRecentSubmissionInComments()
+  }
+}
+
 function onFeedbackComplete(name: string, comment: string, clientTimestamp: string) {
   addOptimisticComment(name, comment, clientTimestamp)
+  logSubmissionToStorage(name, comment, clientTimestamp)
   enableDownload()
   setTimeout(() => loadComments(true), 1500)
 }
@@ -251,12 +315,9 @@ function enableDownload() {
   const btnDownload = document.querySelector('.btn-download')
   if (btnDownload) {
     btnDownload.classList.remove('is-disabled')
-    btnDownload.addEventListener('click', () => {
-      console.log('btn-download clicked')
-    })
   }
 }
 
 initFeedbackForm()
-loadComments()
+loadComments().then(() => checkSubmissionOnLoad())
 setInterval(() => loadComments(true), 5000)
