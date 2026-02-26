@@ -51,7 +51,8 @@ button {
 button:hover {
   filter: drop-shadow(0 0 1rem var(--color-accent));
 }
-button:disabled {
+
+.btn-download.is-disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
@@ -198,6 +199,15 @@ button:disabled {
 
 .feedback_wrapper {
   /* margin-top: 1.5rem; */
+}
+
+.feedback_wrapper.shake-it {
+  animation: shake-it 0.5s linear;
+}
+@keyframes shake-it {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+  20%, 40%, 60%, 80% { transform: translateX(10px); }
 }
 
 .feedback_wrapper h3 {

@@ -39,7 +39,7 @@
 				</div>
 
 				<div class="download-wrapper">
-					<button class="btn-download" disabled>Download</button>
+					<button class="btn-download is-disabled">Download</button>
 					<a href="#" class="website-link">www.diffusereality.net</a>
 				</div>
 			</section>
@@ -53,30 +53,8 @@
 				</div>
 
 				<div class="comments_wrapper">
-					<!-- <h3>Comments:</h3> -->
-					<div class="comments_list">
-						
-						<div class="comment_item">
-							<div class="comment_author">
-								<span>Name:</span>
-								<span class="comment_author_name">John Doe</span>
-							</div>
-							<div class="comment_content">
-								<span>Comment:</span>
-								<span class="comment_content_text"></span>This is a comment</span>
-							</div>
-						</div>
-						
-						<div class="comment_item">
-							<div class="comment_author">
-								<span>Name:</span>
-								<span class="comment_author_name">John Doe</span>
-							</div>
-							<div class="comment_content">
-								<span>Comment:</span>
-								<span class="comment_content_text"></span>This is a comment</span>
-							</div>
-						</div>
+					<div class="comments_list" id="comments-list">
+						<!-- Comments loaded from Google Sheet CSV -->
 					</div>
 				</div>
 
@@ -90,6 +68,8 @@
 						target="feedback-form-iframe"
 					>
 						<input type="hidden" name="embedded" value="true" />
+						<input type="hidden" name="entry.2011141325" id="form-client-timestamp" value="" />
+
 						<label>Name: <input type="text" name="entry.980453823" required /></label>
 						<label>Comment: <textarea name="entry.371553560" required></textarea></label>
 						<button type="submit" class="btn-submit">Submit</button>
