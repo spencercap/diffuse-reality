@@ -1,62 +1,104 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Diffuse Reality</title>
-    <link rel="stylesheet" href="/src/style.css" />
-  </head>
-  <body>
-    <header class="header">
-      <h1>Diffuse Reality</h1>
-    </header>
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Diffuse Reality</title>
+		<link rel="stylesheet" href="/src/style.css" />
+	</head>
+	<body>
+		<header class="header">
+			<h1>Diffuse Reality</h1>
+		</header>
 
-    <main class="grid">
-      <section class="grid__left">
-        <div class="album-info">
-          <h2>Arts Of Techno - Pulseway</h2>
-          <p>Full Album — <a href="#">ggo.su/8BfQr</a></p>
-          <p>Artist: Arts Of Techno</p>
-          <p>Title: Crimson</p>
-          <p>Format: Digital</p>
-          <p>Catalogue: DRSS1323</p>
-        </div>
+		<div class="spacer" style="padding-top: 3rem;"></div>
 
-        <div class="tracklist">
-          <h3>Tracklist:</h3>
-          <ol>
-            <li>Noctis</li>
-            <li>If not now when</li>
-            <li>Hello Mr. Nobody</li>
-            <li>Pulseway</li>
-            <li>Crimson</li>
-            <li>Shadow</li>
-            <li>Specter</li>
-          </ol>
-        </div>
+		<main class="grid">
+			<section class="grid__left">
+				<div class="album-info">
+					<h3>Arts Of Techno - Pulseway</h3>
+					<h3>Full Album — <a href="#">ggo.su/8BfQr</a></h3>
+					<h3>Artist: Arts Of Techno</h3>
+					<h3>Title: Crimson</h3>
+					<h3>Format: Digital</h3>
+					<h3>Catalogue: DRSS1323</h3>
+				</div>
 
-        <button class="btn-download" disabled>Download</button>
-        <a href="#" class="website-link">www.diffusereality.net</a>
-      </section>
+				<div class="tracklist">
+					<h3>Tracklist:</h3>
+					<ol>
+						<li>Noctis</li>
+						<li>If not now when</li>
+						<li>Hello Mr. Nobody</li>
+						<li>Pulseway</li>
+						<li>Crimson</li>
+						<li>Shadow</li>
+						<li>Specter</li>
+					</ol>
+				</div>
 
-      <section class="grid__right">
-        <div class="audio-player">
-          <div class="audio-player__art"></div>
-          <p class="audio-player__title">Diffuse Reality - Arts Of Techno - Pulseway</p>
-        </div>
+				<div class="download-wrapper">
+					<button class="btn-download" disabled>Download</button>
+					<a href="#" class="website-link">www.diffusereality.net</a>
+				</div>
+			</section>
 
-        <div class="feedback">
-          <h3>Give us your feedback!</h3>
-          <div class="feedback_form">
-            <label>Name: <input type="text" /></label>
-            <label>Comment: <textarea></textarea></label>
-            <button class="btn-submit">Thanks for your feedback!</button>
-          </div>
-        </div>
-      </section>
-    </main>
+			<section class="grid_right">
+				<div class="audio-player_wrapper">
+					<!-- <div class="audio-player_art"></div>
+					<p class="audio-player_title">Diffuse Reality - Arts Of Techno - Pulseway</p> -->
 
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+					<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2109387708&color=%232a0809&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/diffusereality" title="Diffuse Reality" target="_blank" style="color: #cccccc; text-decoration: none;">Diffuse Reality</a> · <a href="https://soundcloud.com/diffusereality/arts-of-techno-option" title="Arts of Techno - Option" target="_blank" style="color: #cccccc; text-decoration: none;">Arts of Techno - Option</a></div>
+				</div>
+
+				<div class="comments_wrapper">
+					<!-- <h3>Comments:</h3> -->
+					<div class="comments_list">
+						
+						<div class="comment_item">
+							<div class="comment_author">
+								<span>Name:</span>
+								<span class="comment_author_name">John Doe</span>
+							</div>
+							<div class="comment_content">
+								<span>Comment:</span>
+								<span class="comment_content_text"></span>This is a comment</span>
+							</div>
+						</div>
+						
+						<div class="comment_item">
+							<div class="comment_author">
+								<span>Name:</span>
+								<span class="comment_author_name">John Doe</span>
+							</div>
+							<div class="comment_content">
+								<span>Comment:</span>
+								<span class="comment_content_text"></span>This is a comment</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="feedback_wrapper">
+					<h3>Give us your feedback!</h3>
+					<form
+						class="feedback_form"
+						id="feedback-form"
+						action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSckBaSONpEhPY5Mus_-EJTyvjHQYwIdl_kcqt4fWd1LHCPXIA/formResponse"
+						method="POST"
+						target="feedback-form-iframe"
+					>
+						<input type="hidden" name="embedded" value="true" />
+						<label>Name: <input type="text" name="entry.980453823" required /></label>
+						<label>Comment: <textarea name="entry.371553560" required></textarea></label>
+						<button type="submit" class="btn-submit">Submit</button>
+					</form>
+					<iframe name="feedback-form-iframe" id="feedback-form-iframe" class="feedback-form-iframe" title="Form submission"></iframe>
+				</div>
+			</section>
+		</main>
+
+		<script type="module" src="/src/main.ts"></script>
+	</body>
 </html>
