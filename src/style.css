@@ -10,9 +10,9 @@
   -moz-osx-font-smoothing: grayscale;
 
   color-scheme: light dark;
-  --color-bg: #FFFFCA;
-  --color-text: #000;
-  --color-accent: #FFBF00
+  --color-bg: #000;
+  --color-text: #FFF;
+  --color-accent: #FFF
 
 }
 
