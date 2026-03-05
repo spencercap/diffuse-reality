@@ -41,7 +41,7 @@ h3 {
 
 button {
   background-color: var(--color-accent);
-  color: var(--color-text);
+  color: var(--color-bg);
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 1rem;
@@ -157,7 +157,10 @@ button:hover {
 }
 
 .comments_wrapper {
-  background-color: #F0FF7F;
+  /*
+  background-color: var(--color-accent);
+  */
+  border: 1px solid var(--color-text);
   padding: 1rem;
   border-radius: 1rem;
 }
